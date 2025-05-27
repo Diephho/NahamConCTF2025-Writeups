@@ -621,7 +621,7 @@ I uploaded it, there was no flag, but it say something about **ppm**. Next, I co
 
 ![Screenshot 2025-05-25 085934](https://hackmd.io/_uploads/r17mYgQMel.png)
 
-FLAG: flag{7deea6641b672696de44e60611a8a429}
+**FLAG: flag{7deea6641b672696de44e60611a8a429}**
 
 ### Cube
 

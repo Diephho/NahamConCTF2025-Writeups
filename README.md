@@ -17,15 +17,15 @@ Hex Content, saved in to `dump.hex`
 
 ```
 
-Convert hex text to binary file flag.txt
+Convert hex text to binary file Screenshot.zip
 
 ```bash
-xxd -r -p dump.hex flag.zip
+xxd -r -p dump.hex Screenshot.zip
 ```
 
-Then, unzip **flag.zip** with password `password`, open `flag.txt` and get the flag
+Then, unzip **Screenshot.zip** with password `password`, open `flag.txt` and get the flag
 
-`7z x -ppassword flag.zip`
+`7z x -ppassword Screenshot.zip`
 
 ![image](https://hackmd.io/_uploads/HyJzx8Zzle.png)
 

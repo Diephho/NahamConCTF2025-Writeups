@@ -242,6 +242,48 @@ if __name__ == "__main__":
 
 **FLAG: flag{0e42ba180089ce6e3bb50e52587d3724}**
 
+## Forensics
+
+### Puzzle Pieces
+
+![image](https://hackmd.io/_uploads/BJXyiIEGxg.png)
+
+Ok, It gave me a `7z` file, unzipped it, I got some `exe` files. (~~No alert from Windows Defender, so I think it maybe safe for my computer~~). 
+The name files were renamed like the description told.
+
+Run one of them and it printed out some characters.
+
+![image](https://hackmd.io/_uploads/rkuZ3I4Gel.png)
+
+It looked like a part of flag. Those files had **same size**, but the **LastWriteTime** was different. My idea is running those files with sorting by time.
+Write an automation bat file to solve.
+
+```bash!
+@echo off
+setlocal enabledelayedexpansion
+
+set result=
+
+for /f "delims=" %%i in ('powershell -Command "Get-ChildItem -Path . -Filter *.exe | Sort-Object LastWriteTime | ForEach-Object { $_.Name }"') do (
+    echo Running %%i
+    for /f %%o in ('%%i') do (
+        set output=%%o
+        set result=!result!!output! 
+    )
+)
+
+:: Remove all whitespace using PowerShell and display final cleaned output
+for /f %%r in ('powershell -Command "$input = '%result%'; $input -replace '\s',''"') do (
+    set cleaned=%%r
+)
+
+echo.
+echo FinalOutput:!cleaned!
+```
+
+![image](https://hackmd.io/_uploads/B1F7TIEfxg.png)
+
+**FLAG: flag{512faff5e7d89c9b8bd4b9517af9bfaa}**
 
 ## DevOps
 

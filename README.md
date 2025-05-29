@@ -1,4 +1,4 @@
-# Nahamcon CTF 2025 writeups
+# NahamCon CTF 2025 writeups
 
 ## Warmups
 
